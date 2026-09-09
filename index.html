@@ -1,0 +1,3627 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>شَيَّاد — منصة تأسيس المشاريع</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+/* =========================================================
+   GENERAL
+========================================================= */
+
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  font-family:'IBM Plex Sans Arabic',sans-serif;
+  background:#fff;
+  color:#0a0a0a;
+  line-height:1.65;
+  overflow-x:hidden;
+}
+
+button,
+input,
+select,
+textarea{
+  font-family:inherit;
+}
+
+button{
+  cursor:pointer;
+}
+
+a{
+  color:inherit;
+}
+
+
+/* =========================================================
+   MAIN TOP BAR
+========================================================= */
+
+.topbar{
+  height:60px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 24px;
+  border-bottom:1px solid #e4e4e1;
+  background:#fff;
+  position:sticky;
+  top:0;
+  z-index:100;
+}
+
+.topbar .brand{
+  font-size:18px;
+  font-weight:600;
+}
+
+.topbar .brand span{
+  display:block;
+  font-size:10px;
+  color:#6a6a6a;
+  letter-spacing:.14em;
+  font-weight:400;
+}
+
+.tabs{
+  display:flex;
+  gap:6px;
+  background:#f2f2ef;
+  padding:4px;
+  border-radius:8px;
+}
+
+.tab{
+  padding:8px 20px;
+  border-radius:6px;
+  border:0;
+  background:none;
+  color:#6a6a6a;
+  font-size:13px;
+  font-weight:500;
+}
+
+.tab.active{
+  background:#0a0a0a;
+  color:#fff;
+}
+
+
+/* =========================================================
+   VIEWS
+========================================================= */
+
+.view{
+  display:none;
+}
+
+.view.active{
+  display:block;
+}
+
+
+/* =========================================================
+   LANDING PAGE
+========================================================= */
+
+.landing{
+  background:#fff;
+  color:#0a0a0a;
+}
+
+.landing .wrap{
+  max-width:1080px;
+  margin:auto;
+  padding:0 28px;
+}
+
+.landing nav{
+  position:sticky;
+  top:60px;
+  z-index:50;
+  background:rgba(255,255,255,.92);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid #d8d8d5;
+}
+
+.landing nav .wrap{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  height:68px;
+}
+
+.logo{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  font-size:22px;
+  font-weight:600;
+}
+
+.logo-sub{
+  font-size:11px;
+  color:#6a6a6a;
+  letter-spacing:.14em;
+}
+
+.cta-small{
+  padding:9px 20px;
+  border:1px solid #0a0a0a;
+  color:#0a0a0a;
+  border-radius:3px;
+  font-size:14px;
+  font-weight:500;
+  text-decoration:none;
+}
+
+.cta-small:hover{
+  background:#0a0a0a;
+  color:#fff;
+}
+
+
+/* HERO */
+
+.hero{
+  position:relative;
+  padding:110px 0 130px;
+  overflow:hidden;
+}
+
+.blueprint{
+  position:absolute;
+  inset:0;
+  background-image:
+    linear-gradient(#d8d8d5 1px,transparent 1px),
+    linear-gradient(90deg,#d8d8d5 1px,transparent 1px);
+  background-size:64px 64px;
+  opacity:.35;
+  mask-image:linear-gradient(to bottom,#000,transparent 85%);
+  -webkit-mask-image:linear-gradient(to bottom,#000,transparent 85%);
+}
+
+.hero .wrap{
+  position:relative;
+  z-index:2;
+}
+
+.hero-eyebrow{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  color:#b9925a;
+  font-size:13px;
+  font-weight:500;
+  margin-bottom:28px;
+}
+
+.hero-eyebrow .dash{
+  width:24px;
+  height:1px;
+  background:#b9925a;
+}
+
+.hero-title{
+  font-size:clamp(34px,5vw,58px);
+  font-weight:700;
+  line-height:1.25;
+  max-width:820px;
+}
+
+.hero-title em{
+  font-style:normal;
+  text-decoration:underline;
+  text-decoration-thickness:1px;
+  text-underline-offset:6px;
+}
+
+.hero-sub{
+  margin-top:26px;
+  font-size:18px;
+  color:#555;
+  max-width:560px;
+  font-weight:300;
+}
+
+.hero-actions{
+  margin-top:42px;
+  display:flex;
+  gap:14px;
+  flex-wrap:wrap;
+}
+
+.btn-primary{
+  background:#b9925a;
+  color:#fff;
+  padding:14px 30px;
+  border-radius:3px;
+  font-weight:600;
+  font-size:15px;
+  text-decoration:none;
+  display:inline-block;
+}
+
+.btn-primary:hover{
+  transform:translateY(-1px);
+  box-shadow:0 8px 24px rgba(185,146,90,.25);
+}
+
+.btn-ghost{
+  border:1px solid #d8d8d5;
+  color:#0a0a0a;
+  padding:14px 30px;
+  border-radius:3px;
+  font-weight:500;
+  font-size:15px;
+  text-decoration:none;
+  display:inline-block;
+  background:#fff;
+}
+
+.hero-stats{
+  margin-top:80px;
+  display:flex;
+  border-top:1px solid #d8d8d5;
+  padding-top:28px;
+  max-width:680px;
+}
+
+.hero-stats div{
+  padding-left:40px;
+  margin-left:40px;
+  border-left:1px solid #d8d8d5;
+}
+
+.hero-stats div:first-child{
+  padding-left:0;
+  margin-left:0;
+  border-left:none;
+}
+
+.hero-stats .num{
+  font-size:26px;
+  font-weight:700;
+  color:#0a0a0a;
+}
+
+.hero-stats .label{
+  font-size:13px;
+  color:#666;
+  margin-top:4px;
+}
+
+
+/* SECTIONS */
+
+.section{
+  padding:100px 0;
+  border-top:1px solid #d8d8d5;
+}
+
+.section-head{
+  max-width:600px;
+  margin-bottom:64px;
+}
+
+.section-tag{
+  color:#b9925a;
+  font-size:13px;
+  font-weight:600;
+  margin-bottom:14px;
+}
+
+.section-title{
+  font-size:clamp(26px,3.4vw,36px);
+  font-weight:600;
+  line-height:1.35;
+}
+
+.section-desc{
+  color:#555;
+  margin-top:16px;
+  font-size:16px;
+  font-weight:300;
+  max-width:520px;
+}
+
+
+/* PROBLEM */
+
+.problem-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:1px;
+  background:#d8d8d5;
+  border:1px solid #d8d8d5;
+}
+
+.problem-card{
+  background:#fff;
+  padding:36px 30px;
+}
+
+.problem-card .n{
+  color:#888;
+  font-size:13px;
+  margin-bottom:18px;
+  font-family:monospace;
+}
+
+.problem-card strong{
+  display:block;
+  font-weight:500;
+  font-size:17px;
+  margin-bottom:10px;
+}
+
+.problem-card p{
+  font-size:15px;
+  color:#555;
+  font-weight:300;
+}
+
+
+/* PROCESS */
+
+.step{
+  position:relative;
+  display:flex;
+  gap:32px;
+  padding:36px 0;
+  border-top:1px solid #d8d8d5;
+}
+
+.step:first-child{
+  border-top:none;
+}
+
+.step-num{
+  flex-shrink:0;
+  width:52px;
+  height:52px;
+  border:1px solid #0a0a0a;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#0a0a0a;
+  font-weight:600;
+  background:#fff;
+}
+
+.step-body strong{
+  display:block;
+  font-size:19px;
+  font-weight:600;
+  margin-bottom:8px;
+}
+
+.step-body p{
+  color:#555;
+  font-size:15px;
+  font-weight:300;
+  max-width:480px;
+}
+
+
+/* DEMO */
+
+.demo-panel{
+  background:#f2f2ef;
+  border:1px solid #d8d8d5;
+  border-radius:8px;
+  padding:32px;
+}
+
+.demo-row{
+  margin-bottom:24px;
+}
+
+.demo-label{
+  font-size:13px;
+  color:#666;
+  margin-bottom:12px;
+  display:block;
+}
+
+.chip-group{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+}
+
+.chip{
+  padding:10px 18px;
+  border:1px solid #d8d8d5;
+  border-radius:20px;
+  font-size:14px;
+  background:#fff;
+  cursor:pointer;
+}
+
+.chip.active{
+  background:#0a0a0a;
+  color:#fff;
+  border-color:#0a0a0a;
+}
+
+.demo-submit{
+  margin-top:28px;
+  background:#0a0a0a;
+  color:#fff;
+  border:none;
+  padding:14px 30px;
+  border-radius:3px;
+  font-weight:600;
+  font-size:15px;
+}
+
+.demo-submit:disabled{
+  opacity:.35;
+  cursor:not-allowed;
+}
+
+.demo-result{
+  margin-top:28px;
+  padding-top:28px;
+  border-top:1px solid #d8d8d5;
+  display:none;
+}
+
+.demo-result.show{
+  display:block;
+}
+
+.match-card{
+  display:flex;
+  align-items:center;
+  gap:16px;
+  padding:18px;
+  background:#fff;
+  border:1px solid #d8d8d5;
+  border-radius:6px;
+}
+
+.match-avatar{
+  width:48px;
+  height:48px;
+  border-radius:50%;
+  background:#0a0a0a;
+  color:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:600;
+  flex-shrink:0;
+}
+
+.match-info strong{
+  display:block;
+  font-size:15px;
+}
+
+.match-info span{
+  font-size:13px;
+  color:#777;
+}
+
+.match-score{
+  margin-right:auto;
+  font-size:13px;
+  font-weight:600;
+  background:#f2f2ef;
+  padding:6px 12px;
+  border-radius:20px;
+}
+
+
+/* DASHBOARD PREVIEW */
+
+.dash-panel{
+  background:#f2f2ef;
+  border:1px solid #d8d8d5;
+  border-radius:8px;
+  overflow:hidden;
+}
+
+.dash-topbar{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:18px 24px;
+  border-bottom:1px solid #d8d8d5;
+}
+
+.dash-topbar span{
+  font-size:13px;
+  color:#666;
+}
+
+.dash-body{
+  padding:32px 24px;
+}
+
+.progress-row{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  margin-bottom:10px;
+}
+
+.progress-row span:first-child{
+  font-size:13px;
+  color:#555;
+}
+
+.progress-row span:last-child{
+  font-size:13px;
+  color:#b9925a;
+  font-weight:600;
+}
+
+.progress-bar{
+  height:6px;
+  background:#fff;
+  border-radius:3px;
+  overflow:hidden;
+  margin-bottom:32px;
+}
+
+.progress-fill{
+  height:100%;
+  width:62%;
+  background:linear-gradient(90deg,#b9925a,#0a0a0a);
+}
+
+.stage-list{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+
+.stage-item{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  padding:14px 16px;
+  background:#fff;
+  border-radius:5px;
+  border:1px solid #d8d8d5;
+}
+
+.stage-dot{
+  width:8px;
+  height:8px;
+  border-radius:50%;
+  flex-shrink:0;
+}
+
+.stage-dot.done{
+  background:#b9925a;
+}
+
+.stage-dot.pending{
+  background:transparent;
+  border:1.5px solid #b9925a;
+  width:5px;
+  height:5px;
+}
+
+.stage-dot.locked{
+  background:#999;
+}
+
+.stage-item span{
+  font-size:14px;
+}
+
+.stage-item small{
+  color:#888;
+  font-size:12px;
+  margin-right:auto;
+}
+
+
+/* TRUST */
+
+.trust{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:60px;
+  align-items:center;
+}
+
+.trust-visual{
+  border:1px solid #d8d8d5;
+  border-radius:8px;
+  padding:40px 32px;
+  background:#f2f2ef;
+}
+
+.lockrow{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  font-size:14px;
+  color:#555;
+  padding:14px 0;
+  border-bottom:1px solid #d8d8d5;
+}
+
+.lockrow:last-child{
+  border-bottom:none;
+}
+
+.lockrow .check{
+  color:#b9925a;
+  font-weight:700;
+}
+
+
+/* FINAL CTA */
+
+.cta-final{
+  text-align:center;
+  padding:120px 0;
+}
+
+.cta-final h2{
+  font-size:clamp(28px,4vw,44px);
+  font-weight:700;
+  max-width:620px;
+  margin:0 auto 22px;
+}
+
+.cta-final p{
+  color:#555;
+  font-size:16px;
+  margin-bottom:40px;
+}
+
+footer{
+  border-top:1px solid #d8d8d5;
+  padding:36px 0;
+}
+
+footer .wrap{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  font-size:13px;
+  color:#888;
+}
+
+
+/* =========================================================
+   MODAL
+========================================================= */
+
+.modal-overlay{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.5);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  z-index:500;
+  padding:20px;
+}
+
+.modal-overlay.show{
+  display:flex;
+}
+
+.modal-box{
+  background:#fff;
+  border:1px solid #d8d8d5;
+  border-radius:8px;
+  padding:32px;
+  max-width:420px;
+  width:100%;
+  max-height:90vh;
+  overflow-y:auto;
+}
+
+.modal-box h3{
+  font-size:20px;
+  font-weight:600;
+  margin-bottom:6px;
+}
+
+.modal-sub{
+  font-size:14px;
+  color:#555;
+  margin-bottom:24px;
+}
+
+.form-field{
+  margin-bottom:16px;
+}
+
+.form-field label{
+  display:block;
+  font-size:13px;
+  color:#666;
+  margin-bottom:6px;
+}
+
+.form-field input,
+.form-field select{
+  width:100%;
+  padding:11px 14px;
+  border:1px solid #d8d8d5;
+  border-radius:4px;
+  background:#fff;
+  color:#0a0a0a;
+  font-size:14px;
+}
+
+.modal-actions{
+  display:flex;
+  gap:10px;
+  margin-top:24px;
+}
+
+.modal-actions button{
+  font-size:14px;
+  border-radius:3px;
+  padding:12px 20px;
+}
+
+.modal-submit{
+  flex:1;
+  background:#0a0a0a;
+  color:#fff;
+  border:none;
+  font-weight:600;
+}
+
+.modal-cancel{
+  background:transparent;
+  border:1px solid #d8d8d5;
+}
+
+.modal-success{
+  display:none;
+  text-align:center;
+  padding:20px 0;
+}
+
+.modal-success.show{
+  display:block;
+}
+
+.modal-success .icon{
+  font-size:32px;
+  margin-bottom:14px;
+}
+
+.modal-success p{
+  color:#555;
+  font-size:14px;
+}
+
+
+/* =========================================================
+   CHATBOT
+========================================================= */
+
+.chat-bubble{
+  position:fixed;
+  bottom:24px;
+  left:24px;
+  width:56px;
+  height:56px;
+  border-radius:50%;
+  background:#0a0a0a;
+  color:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:24px;
+  cursor:pointer;
+  z-index:300;
+  border:none;
+  box-shadow:0 6px 20px rgba(0,0,0,.2);
+}
+
+.chat-panel{
+  position:fixed;
+  bottom:92px;
+  left:24px;
+  width:320px;
+  max-width:calc(100vw - 48px);
+  height:420px;
+  max-height:calc(100vh - 140px);
+  background:#fff;
+  border:1px solid #d8d8d5;
+  border-radius:10px;
+  display:none;
+  flex-direction:column;
+  z-index:300;
+  box-shadow:0 12px 40px rgba(0,0,0,.25);
+  overflow:hidden;
+}
+
+.chat-panel.show{
+  display:flex;
+}
+
+.chat-head{
+  padding:16px 18px;
+  border-bottom:1px solid #d8d8d5;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+.chat-head strong{
+  font-size:14px;
+}
+
+.chat-head span{
+  font-size:12px;
+  color:#888;
+}
+
+.chat-close{
+  background:none;
+  border:none;
+  font-size:18px;
+  color:#888;
+}
+
+.chat-body{
+  flex:1;
+  overflow-y:auto;
+  padding:16px 18px;
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+
+.msg{
+  max-width:85%;
+  padding:10px 14px;
+  border-radius:14px;
+  font-size:13px;
+  line-height:1.55;
+}
+
+.msg.bot{
+  background:#f2f2ef;
+  align-self:flex-start;
+  border-bottom-left-radius:4px;
+}
+
+.msg.user{
+  background:#0a0a0a;
+  color:#fff;
+  align-self:flex-end;
+  border-bottom-right-radius:4px;
+}
+
+.chat-quick{
+  padding:0 18px 14px;
+  display:flex;
+  flex-wrap:wrap;
+  gap:6px;
+}
+
+.quick-btn{
+  font-size:12px;
+  padding:7px 12px;
+  border:1px solid #d8d8d5;
+  border-radius:14px;
+  background:#fff;
+}
+
+
+/* =========================================================
+   APP DASHBOARD
+========================================================= */
+
+.app{
+  min-height:calc(100vh - 60px);
+  background:#fff;
+  color:#0a0a0a;
+  display:flex;
+}
+
+.sidebar{
+  width:236px;
+  flex-shrink:0;
+  background:#f7f7f5;
+  border-left:1px solid #d8d8d5;
+  padding:28px 18px;
+  display:flex;
+  flex-direction:column;
+  position:sticky;
+  top:60px;
+  height:calc(100vh - 60px);
+  overflow-y:auto;
+}
+
+.sidebar .brand{
+  padding:0 10px 28px;
+  border-bottom:1px solid #d8d8d5;
+  margin-bottom:22px;
+}
+
+.sidebar .brand .name{
+  font-size:22px;
+  font-weight:600;
+}
+
+.sidebar .brand .sub{
+  font-size:10px;
+  color:#888;
+  letter-spacing:.16em;
+}
+
+.nav-item{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  padding:11px 12px;
+  border-radius:6px;
+  font-size:14px;
+  color:#555;
+  margin-bottom:2px;
+  border:none;
+  background:none;
+  width:100%;
+  text-align:right;
+}
+
+.nav-item:hover{
+  background:#eaeae6;
+  color:#0a0a0a;
+}
+
+.nav-item.active{
+  background:rgba(185,146,90,.14);
+  color:#b9925a;
+  font-weight:500;
+}
+
+.nav-item .ic{
+  width:18px;
+  height:18px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:15px;
+}
+
+.sidebar-footer{
+  margin-top:auto;
+  padding-top:16px;
+  border-top:1px solid #d8d8d5;
+  font-size:11px;
+  color:#888;
+}
+
+.app main{
+  flex:1;
+  min-width:0;
+  padding:44px 48px;
+  max-width:900px;
+}
+
+.screen{
+  display:none;
+}
+
+.screen.active{
+  display:block;
+  animation:fade .25s ease;
+}
+
+@keyframes fade{
+  from{
+    opacity:0;
+    transform:translateY(6px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+.eyebrow{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  color:#b9925a;
+  font-size:12px;
+  font-weight:500;
+  margin-bottom:16px;
+}
+
+.eyebrow .dash{
+  width:20px;
+  height:1px;
+  background:#b9925a;
+}
+
+.app h1{
+  font-size:28px;
+  font-weight:600;
+  margin-bottom:8px;
+}
+
+.lead{
+  color:#555;
+  font-size:15px;
+  font-weight:300;
+  max-width:520px;
+  margin-bottom:36px;
+}
+
+.card{
+  background:#f2f2ef;
+  border:1px solid #d8d8d5;
+  border-radius:8px;
+  padding:24px;
+}
+
+.grid-2{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:14px;
+}
+
+.grid-3{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:14px;
+}
+
+.field{
+  margin-bottom:18px;
+}
+
+.field label{
+  display:block;
+  font-size:13px;
+  color:#666;
+  margin-bottom:7px;
+}
+
+.field input,
+.field select,
+.field textarea{
+  width:100%;
+  padding:12px 14px;
+  background:#f7f7f5;
+  border:1px solid #d8d8d5;
+  border-radius:5px;
+  color:#0a0a0a;
+  font-size:14px;
+}
+
+.field textarea{
+  resize:vertical;
+  min-height:90px;
+}
+
+.btn{
+  display:inline-block;
+  padding:13px 26px;
+  border-radius:5px;
+  font-size:14px;
+  font-weight:600;
+  cursor:pointer;
+  border:none;
+}
+
+.btn-gold{
+  background:#b9925a;
+  color:#fff;
+}
+
+.btn-outline{
+  background:none;
+  border:1px solid #d8d8d5;
+  color:#0a0a0a;
+}
+
+
+/* APP FEATURE CARDS */
+
+.feature-card{
+  padding:26px 22px;
+}
+
+.feature-card .ic{
+  width:38px;
+  height:38px;
+  border-radius:8px;
+  background:rgba(185,146,90,.14);
+  color:#b9925a;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:18px;
+  margin-bottom:16px;
+}
+
+.feature-card strong{
+  display:block;
+  font-size:15px;
+  margin-bottom:8px;
+}
+
+.feature-card p{
+  font-size:13px;
+  color:#555;
+  font-weight:300;
+}
+
+
+/* NOTIFICATIONS */
+
+.notif-item{
+  display:flex;
+  gap:14px;
+  align-items:flex-start;
+  padding:16px 0;
+  border-bottom:1px solid #d8d8d5;
+  justify-content:space-between;
+}
+
+.notif-item:last-child{
+  border-bottom:none;
+}
+
+.notif-dot{
+  width:8px;
+  height:8px;
+  border-radius:50%;
+  background:#b9925a;
+  margin-top:6px;
+  flex-shrink:0;
+}
+
+.notif-dot.read{
+  background:#d8d8d5;
+}
+
+.notif-item strong{
+  display:block;
+  font-size:14px;
+  margin-bottom:3px;
+}
+
+.notif-item p{
+  font-size:13px;
+  color:#555;
+  font-weight:300;
+}
+
+.notif-item time{
+  font-size:11px;
+  color:#888;
+  white-space:nowrap;
+}
+
+
+/* JOURNEY */
+
+.stage{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  padding:15px 16px;
+  margin-bottom:10px;
+  background:#f7f7f5;
+  border:1px solid #d8d8d5;
+  border-radius:6px;
+}
+
+.stage .dot{
+  width:9px;
+  height:9px;
+  border-radius:50%;
+  flex-shrink:0;
+}
+
+.stage .dot.done{
+  background:#b9925a;
+}
+
+.stage .dot.pending{
+  background:transparent;
+  border:1.5px solid #b9925a;
+  width:6px;
+  height:6px;
+}
+
+.stage .dot.locked{
+  background:#999;
+}
+
+.stage small{
+  margin-right:auto;
+  color:#888;
+  font-size:12px;
+}
+
+
+/* IDENTITY */
+
+.design-card{
+  border:1px solid #d8d8d5;
+  border-radius:8px;
+  overflow:hidden;
+  background:#f7f7f5;
+}
+
+.design-swatch{
+  height:110px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:24px;
+  font-weight:700;
+}
+
+.design-meta{
+  padding:14px 16px;
+}
+
+.design-meta strong{
+  font-size:13px;
+  display:block;
+  margin-bottom:3px;
+}
+
+.design-meta span{
+  font-size:12px;
+  color:#888;
+}
+
+
+/* SUPPORT */
+
+.support-option{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  padding:18px;
+  border:1px solid #d8d8d5;
+  border-radius:8px;
+  margin-bottom:12px;
+  background:#f2f2ef;
+}
+
+.support-option .ic{
+  font-size:20px;
+  color:#b9925a;
+  width:24px;
+  text-align:center;
+}
+
+.support-option strong{
+  display:block;
+  font-size:14px;
+}
+
+.support-option span{
+  font-size:12px;
+  color:#888;
+}
+
+.faq-item{
+  padding:16px 0;
+  border-bottom:1px solid #d8d8d5;
+}
+
+.faq-item strong{
+  display:block;
+  font-size:14px;
+  margin-bottom:6px;
+}
+
+.faq-item p{
+  font-size:13px;
+  color:#555;
+  font-weight:300;
+}
+
+
+/* SETTINGS */
+
+.block{
+  margin-bottom:40px;
+}
+
+.block h2{
+  font-size:16px;
+  font-weight:600;
+  margin-bottom:16px;
+}
+
+.settings-row{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:16px 0;
+  border-bottom:1px solid #d8d8d5;
+}
+
+.settings-row:last-child{
+  border-bottom:none;
+}
+
+.settings-row strong{
+  display:block;
+  font-size:14px;
+  margin-bottom:3px;
+}
+
+.settings-row span{
+  font-size:12px;
+  color:#888;
+}
+
+.toggle{
+  width:40px;
+  height:22px;
+  border-radius:12px;
+  background:#d8d8d5;
+  position:relative;
+  cursor:pointer;
+  flex-shrink:0;
+}
+
+.toggle.on{
+  background:#b9925a;
+}
+
+.toggle .knob{
+  position:absolute;
+  top:2px;
+  right:2px;
+  width:18px;
+  height:18px;
+  border-radius:50%;
+  background:#fff;
+  transition:right .2s ease;
+}
+
+.toggle.on .knob{
+  right:20px;
+}
+
+
+/* RESPONSIVE */
+
+@media(max-width:820px){
+
+  .app{
+    flex-direction:column;
+  }
+
+  .sidebar{
+    width:100%;
+    height:auto;
+    position:relative;
+    top:0;
+    flex-direction:row;
+    overflow-x:auto;
+    padding:14px;
+  }
+
+  .sidebar .brand,
+  .sidebar-footer{
+    display:none;
+  }
+
+  .nav-item{
+    white-space:nowrap;
+    width:auto;
+  }
+
+  .app main{
+    padding:28px 20px;
+  }
+
+  .grid-2,
+  .grid-3{
+    grid-template-columns:1fr;
+  }
+}
+
+@media(max-width:760px){
+
+  .topbar{
+    padding:0 14px;
+  }
+
+  .topbar .brand span{
+    display:none;
+  }
+
+  .tab{
+    padding:8px 14px;
+    font-size:12px;
+  }
+
+  .problem-grid{
+    grid-template-columns:1fr;
+  }
+
+  .trust{
+    grid-template-columns:1fr;
+    gap:36px;
+  }
+
+  .hero-stats{
+    flex-direction:column;
+    gap:20px;
+  }
+
+  .hero-stats div{
+    padding-left:0;
+    margin-left:0;
+    border-left:none;
+  }
+
+  .section{
+    padding:70px 0;
+  }
+}
+
+@media(max-width:500px){
+
+  .hero{
+    padding:70px 0 80px;
+  }
+
+  .landing .wrap{
+    padding:0 20px;
+  }
+
+  .hero-title{
+    font-size:34px;
+  }
+
+  .hero-actions{
+    flex-direction:column;
+  }
+
+  .hero-actions a{
+    text-align:center;
+  }
+
+  .match-card{
+    flex-wrap:wrap;
+  }
+
+  .match-score{
+    margin-right:0;
+    width:100%;
+    text-align:center;
+  }
+}
+</style>
+</head>
+
+
+<body>
+
+<!-- =====================================================
+     GLOBAL TOP BAR
+===================================================== -->
+
+<header class="topbar">
+
+  <div class="brand">
+    شَيَّاد
+    <span>SHAYYAD</span>
+  </div>
+
+  <div class="tabs">
+
+    <button
+      class="tab active"
+      data-view="landingView"
+      onclick="switchView('landingView',this)">
+      الموقع
+    </button>
+
+    <button
+      class="tab"
+      data-view="appView"
+      onclick="switchView('appView',this)">
+      لوحة التطبيق
+    </button>
+
+  </div>
+
+</header>
+
+
+<!-- =====================================================
+     LANDING VIEW
+===================================================== -->
+
+<div id="landingView" class="view active landing">
+
+  <nav>
+
+    <div class="wrap">
+
+      <div class="logo">
+        <div>
+          شَيَّاد
+          <div class="logo-sub">SHAYYAD</div>
+        </div>
+      </div>
+
+      <a href="#demo" class="cta-small">
+        ابدأ مشروعك
+      </a>
+
+    </div>
+
+  </nav>
+
+
+  <!-- HERO -->
+
+  <header class="hero">
+
+    <div class="blueprint"></div>
+
+    <div class="wrap">
+
+      <div class="hero-eyebrow">
+        <span class="dash"></span>
+        منصة تقنية سعودية لتأسيس المشاريع
+      </div>
+
+      <h1 class="hero-title">
+        البنية الرقمية اللي
+        <em>تؤسس</em>
+        مشروعك من الفكرة للافتتاح
+      </h1>
+
+      <p class="hero-sub">
+        شَيَّاد تربطك بالمختص الأنسب عبر مطابقة ذكية،
+        وتتابع كل مرحلة من رحلتك لحظة بلحظة،
+        عشان تفتتح مشروعك بهوية متناسقة وبدون فوضى تنسيق.
+      </p>
+
+      <div class="hero-actions">
+
+        <a href="#demo" class="btn-primary">
+          جرّب المطابقة الذكية
+        </a>
+
+        <a href="#process" class="btn-ghost">
+          كيف تشتغل المنصة
+        </a>
+
+      </div>
+
+      <div class="hero-stats">
+
+        <div>
+          <div class="num">AI</div>
+          <div class="label">
+            نظام مطابقة ذكي يتعلم مع كل مشروع
+          </div>
+        </div>
+
+        <div>
+          <div class="num">100%</div>
+          <div class="label">
+            إدارة ومتابعة عن بعد
+          </div>
+        </div>
+
+        <div>
+          <div class="num">1</div>
+          <div class="label">
+            لوحة تحكم توحّد كل الأطراف
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </header>
+
+
+  <!-- PROBLEM -->
+
+  <section class="section" id="problem">
+
+    <div class="wrap">
+
+      <div class="section-head">
+
+        <div class="section-tag">
+          المشكلة
+        </div>
+
+        <h2 class="section-title">
+          تأسيس مشروع يعني التعامل مع جهات متفرقة،
+          بدون أي شي يربطهم
+        </h2>
+
+        <p class="section-desc">
+          مصمم هوية، مصمم ديكور، مطور موقع،
+          كل واحد يشتغل لحاله عن بعد.
+          النتيجة: التاجر نفسه يصير هو المنسّق،
+          ويضيع وقته يلاحق كل طرف على حدة.
+        </p>
+
+      </div>
+
+
+      <div class="problem-grid">
+
+        <div class="problem-card">
+          <div class="n">٠١</div>
+          <strong>تشتت الجهات</strong>
+          <p>
+            كل مختص يشتغل بمعزل، بدون نظام يربط شغلهم
+            ببعض أو يتابع تقدمه.
+          </p>
+        </div>
+
+        <div class="problem-card">
+          <div class="n">٠٢</div>
+          <strong>غياب التتبع</strong>
+          <p>
+            التاجر ما يعرف أين وصل مشروعه فعليًا،
+            ولا متى يجي دوره لاتخاذ قرار.
+          </p>
+        </div>
+
+        <div class="problem-card">
+          <div class="n">٠٣</div>
+          <strong>هوية غير متناسقة</strong>
+          <p>
+            بدون تنسيق حقيقي، تطلع تجربة المشروع النهائية
+            مبعثرة بين كل الأطراف.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- PROCESS -->
+
+  <section class="section" id="process">
+
+    <div class="wrap">
+
+      <div class="section-head">
+
+        <div class="section-tag">
+          كيف تشتغل شَيَّاد
+        </div>
+
+        <h2 class="section-title">
+          رحلة تأسيس واحدة، تديرها تقنية شَيَّاد من أولها لآخرها
+        </h2>
+
+      </div>
+
+
+      <div class="step">
+
+        <div class="step-num">١</div>
+
+        <div class="step-body">
+          <strong>تسجيل بيانات المشروع</strong>
+          <p>
+            نوع النشاط، الميزانية، الاحتياجات —
+            كل هذا يدخل بنظام المطابقة الذكي فور التسجيل.
+          </p>
+        </div>
+
+      </div>
+
+
+      <div class="step">
+
+        <div class="step-num">٢</div>
+
+        <div class="step-body">
+          <strong>مطابقة ذكية بالمختص الأنسب</strong>
+          <p>
+            الذكاء الاصطناعي يحلل بيانات مشروعك
+            ويربطك تلقائيًا بمختص من شبكتنا،
+            بدل ما تدور لحالك.
+          </p>
+        </div>
+
+      </div>
+
+
+      <div class="step">
+
+        <div class="step-num">٣</div>
+
+        <div class="step-body">
+          <strong>متابعة لحظة بلحظة</strong>
+          <p>
+            لوحة التحكم تتابع كل مرحلة،
+            وتنبهك أنت والمختص فور ما توصلون
+            نقطة قرار أو يصير تأخير.
+          </p>
+        </div>
+
+      </div>
+
+
+      <div class="step">
+
+        <div class="step-num">٤</div>
+
+        <div class="step-body">
+          <strong>اعتماد ودفع مرتبط بالإنجاز</strong>
+          <p>
+            الدفعة ما تنزل للمختص إلا بعد اعتمادك
+            للمرحلة، فتضمن التزام حقيقي بكل خطوة.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- DEMO -->
+
+  <section class="section" id="demo">
+
+    <div class="wrap">
+
+      <div class="section-head">
+
+        <div class="section-tag">
+          جرّبها بنفسك
+        </div>
+
+        <h2 class="section-title">
+          وصف مشروعك، وشوف نظام المطابقة يشتغل مباشرة
+        </h2>
+
+        <p class="section-desc">
+          هذا نموذج مبسّط يوضح كيف يحلل نظام المطابقة
+          بياناتك ويرشح لك المختص الأنسب.
+        </p>
+
+      </div>
+
+
+      <div class="demo-panel">
+
+        <div class="demo-row">
+
+          <span class="demo-label">
+            نوع النشاط
+          </span>
+
+          <div class="chip-group" id="chip-type">
+
+            <div class="chip" data-value="مقهى">
+              مقهى
+            </div>
+
+            <div class="chip" data-value="مطعم">
+              مطعم
+            </div>
+
+            <div class="chip" data-value="صالون تجميل">
+              صالون تجميل
+            </div>
+
+            <div class="chip" data-value="متجر أزياء">
+              متجر أزياء
+            </div>
+
+            <div class="chip" data-value="عيادة">
+              عيادة
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <div class="demo-row">
+
+          <span class="demo-label">
+            الميزانية التقريبية
+          </span>
+
+          <div class="chip-group" id="chip-budget">
+
+            <div class="chip" data-value="أقل من ٥٠ ألف">
+              أقل من ٥٠ ألف
+            </div>
+
+            <div class="chip" data-value="٥٠–١٥٠ ألف">
+              ٥٠–١٥٠ ألف
+            </div>
+
+            <div class="chip" data-value="أكثر من ١٥٠ ألف">
+              أكثر من ١٥٠ ألف
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <button
+          class="demo-submit"
+          id="matchBtn"
+          disabled>
+          طابقني الآن
+        </button>
+
+
+        <div class="demo-result" id="demoResult">
+
+          <div class="match-card">
+
+            <div class="match-avatar" id="matchAvatar">
+              م.د
+            </div>
+
+            <div class="match-info">
+
+              <strong id="matchName">
+                المصممة المعتمدة
+              </strong>
+
+              <span id="matchRole">
+                مصممة هوية بصرية — تقييم ٤.٩
+              </span>
+
+            </div>
+
+            <div class="match-score" id="matchScore">
+              مطابقة ٩٤٪
+            </div>
+
+          </div>
+
+
+          <button
+            class="btn-ghost"
+            style="border:none;padding:0;margin-top:16px;text-decoration:underline;background:none;font-size:14px;"
+            onclick="openModal()">
+
+            ابدأ المشروع مع هذا المختص ←
+
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- DASHBOARD PREVIEW -->
+
+  <section class="section">
+
+    <div class="wrap">
+
+      <div class="section-head">
+
+        <div class="section-tag">
+          لوحة التحكم
+        </div>
+
+        <h2 class="section-title">
+          قلب المنصة التقني — رحلتك كاملة في مكان واحد
+        </h2>
+
+        <p class="section-desc">
+          مؤشر جاهزية حي، وحالة كل مرحلة،
+          وتنبيهات فورية — بدون ما تراسل أي طرف
+          تسأل "وين وصلنا؟"
+        </p>
+
+      </div>
+
+
+      <div class="dash-panel">
+
+        <div class="dash-topbar">
+
+          <span>
+            مشروعك: مقهى نوفا
+          </span>
+
+          <span>
+            لوحة التحكم
+          </span>
+
+        </div>
+
+
+        <div class="dash-body">
+
+          <div class="progress-row">
+
+            <span>
+              مؤشر الجاهزية
+            </span>
+
+            <span>
+              62%
+            </span>
+
+          </div>
+
+          <div class="progress-bar">
+            <div class="progress-fill"></div>
+          </div>
+
+
+          <div class="stage-list">
+
+            <div class="stage-item">
+              <div class="stage-dot done"></div>
+              <span>الهوية البصرية</span>
+              <small>مكتمل — معتمد</small>
+            </div>
+
+            <div class="stage-item">
+              <div class="stage-dot pending"></div>
+              <span>تصميم الديكور الداخلي</span>
+              <small>بانتظار اعتمادك</small>
+            </div>
+
+            <div class="stage-item">
+              <div class="stage-dot locked"></div>
+              <span>تطوير الموقع الإلكتروني</span>
+              <small>لم يبدأ بعد</small>
+            </div>
+
+            <div class="stage-item">
+              <div class="stage-dot locked"></div>
+              <span>التصوير والمحتوى</span>
+              <small>لم يبدأ بعد</small>
+            </div>
+
+            <div class="stage-item">
+              <div class="stage-dot locked"></div>
+              <span>الافتتاح</span>
+              <small>لم يبدأ بعد</small>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- TRUST -->
+
+  <section class="section">
+
+    <div class="wrap">
+
+      <div class="trust">
+
+        <div>
+
+          <div class="section-tag">
+            ثقة وشفافية
+          </div>
+
+          <h2 class="section-title">
+            أنت صاحب القرار،
+            وشَيَّاد تتابع التفاصيل
+          </h2>
+
+          <p class="section-desc">
+            المنصة مصممة بحيث تظل الموافقات والقرارات
+            بيد صاحب المشروع، بينما تتولى شَيَّاد
+            التنسيق والمتابعة بين الأطراف.
+          </p>
+
+        </div>
+
+
+        <div class="trust-visual">
+
+          <div class="lockrow">
+            <span class="check">✓</span>
+            اعتمادك مطلوب قبل الانتقال للمرحلة التالية
+          </div>
+
+          <div class="lockrow">
+            <span class="check">✓</span>
+            متابعة واضحة لجميع مراحل المشروع
+          </div>
+
+          <div class="lockrow">
+            <span class="check">✓</span>
+            تنبيهات عند وجود تأخير أو قرار مطلوب
+          </div>
+
+          <div class="lockrow">
+            <span class="check">✓</span>
+            إدارة مركزية لجميع المختصين
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- FINAL CTA -->
+
+  <section class="cta-final">
+
+    <div class="wrap">
+
+      <h2>
+        جاهز تبني مشروعك
+        بدون فوضى التنسيق؟
+      </h2>
+
+      <p>
+        ابدأ بوصف مشروعك وخلك على خطوة واحدة من المطابقة.
+      </p>
+
+      <a href="#demo" class="btn-primary">
+        ابدأ مشروعك الآن
+      </a>
+
+    </div>
+
+  </section>
+
+
+  <footer>
+
+    <div class="wrap">
+
+      <span>
+        شَيَّاد — SHAYYAD
+      </span>
+
+      <span>
+        © ٢٠٢٦ شَيَّاد
+      </span>
+
+    </div>
+
+  </footer>
+
+</div>
+
+
+<!-- =====================================================
+     APP VIEW
+===================================================== -->
+
+<div id="appView" class="view">
+
+  <div class="app">
+
+    <aside class="sidebar">
+
+      <div class="brand">
+
+        <div class="name">
+          شَيَّاد
+        </div>
+
+        <div class="sub">
+          SHAYYAD
+        </div>
+
+      </div>
+
+
+      <button class="nav-item" data-screen="login">
+        <span class="ic">⇥</span>
+        تسجيل الدخول
+      </button>
+
+      <button class="nav-item" data-screen="about">
+        <span class="ic">◎</span>
+        تعرّف علينا
+      </button>
+
+      <button class="nav-item" data-screen="services">
+        <span class="ic">✦</span>
+        الخدمات والمميزات
+      </button>
+
+      <button class="nav-item" data-screen="newproject">
+        <span class="ic">＋</span>
+        مشروع جديد
+      </button>
+
+      <button class="nav-item" data-screen="notifications">
+        <span class="ic">◔</span>
+        التنبيهات
+      </button>
+
+      <button class="nav-item" data-screen="journey">
+        <span class="ic">↝</span>
+        رحلة المشروع
+      </button>
+
+      <button class="nav-item" data-screen="identity">
+        <span class="ic">▣</span>
+        تصاميم الهوية
+      </button>
+
+      <button class="nav-item" data-screen="support">
+        <span class="ic">?</span>
+        الدعم الفني
+      </button>
+
+      <button class="nav-item" data-screen="settings">
+        <span class="ic">⚙</span>
+        الإعدادات
+      </button>
+
+
+      <div class="sidebar-footer">
+        نسخة تجريبية للعرض<br>
+        ©️ شَيَّاد ٢٠٢٦
+      </div>
+
+    </aside>
+
+
+    <main>
+
+
+      <!-- LOGIN -->
+
+      <section class="screen active" id="screen-login">
+
+        <div style="max-width:380px;margin:40px auto">
+
+          <h1 style="text-align:center">
+            حياك في شَيَّاد
+          </h1>
+
+          <p class="lead" style="text-align:center;margin:0 auto 32px">
+            سجّل دخولك عشان تتابع رحلة تأسيس مشروعك.
+          </p>
+
+          <div class="card">
+
+            <div class="field">
+              <label>البريد الإلكتروني أو الجوال</label>
+              <input type="text" placeholder="example@email.com">
+            </div>
+
+            <div class="field">
+              <label>كلمة المرور</label>
+              <input type="password" placeholder="••••••••">
+            </div>
+
+            <button
+              class="btn btn-gold"
+              style="width:100%"
+              onclick="demoLogin()">
+              تسجيل الدخول
+            </button>
+
+            <div style="text-align:center;margin:20px 0;color:#888">
+              أو
+            </div>
+
+            <button
+              class="btn btn-outline"
+              style="width:100%"
+              onclick="go('newproject')">
+              إنشاء حساب جديد
+            </button>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- ABOUT -->
+
+      <section class="screen" id="screen-about">
+
+        <div class="eyebrow">
+          <span class="dash"></span>
+          تعرّف علينا
+        </div>
+
+        <h1>
+          شَيَّاد بنية تقنية، مو مزود تصميم
+        </h1>
+
+        <p class="lead">
+          منصة سعودية تدير رحلة تأسيس مشروعك التجاري
+          من الفكرة للافتتاح — تربطك بالمختص الأنسب
+          وتتابع كل مرحلة نيابة عنك.
+        </p>
+
+        <div class="card" style="margin-bottom:16px">
+
+          <p style="font-size:14px;color:#555;font-weight:300">
+
+            طلعت فكرة شَيَّاد من تجربة حقيقية بسوق التصميم،
+            بعد ما شفنا نفس المشكلة تتكرر مع كل تاجر يبي
+            يفتح مشروعه: جهات متفرقة، بدون نظام يربطها.
+            شَيَّاد تبني هذا الرابط تقنيًا، وتخلي التنسيق
+            والمتابعة مسؤوليتها، مو مسؤوليتك.
+
+          </p>
+
+        </div>
+
+
+        <div class="grid-3">
+
+          <div class="card feature-card">
+            <div class="ic">◎</div>
+            <strong>رؤيتنا</strong>
+            <p>
+              تكون البنية الرقمية القياسية لتأسيس
+              أي مشروع بالسعودية.
+            </p>
+          </div>
+
+          <div class="card feature-card">
+            <div class="ic">✦</div>
+            <strong>قيمتنا</strong>
+            <p>
+              الثقة والشفافية بكل خطوة
+              من رحلة التأسيس.
+            </p>
+          </div>
+
+          <div class="card feature-card">
+            <div class="ic">↝</div>
+            <strong>أسلوبنا</strong>
+            <p>
+              تقنية تدار بالذكاء الاصطناعي،
+              عن بعد بالكامل.
+            </p>
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- SERVICES -->
+
+      <section class="screen" id="screen-services">
+
+        <div class="eyebrow">
+          <span class="dash"></span>
+          ليش شَيَّاد
+        </div>
+
+        <h1>
+          الخدمات والمميزات
+        </h1>
+
+        <p class="lead">
+          كل شي يحتاجه مشروعك وقت التأسيس،
+          بمكان واحد ومتابعة واحدة.
+        </p>
+
+        <div class="grid-2">
+
+          <div class="card feature-card">
+            <div class="ic">✦</div>
+            <strong>مطابقة ذكية</strong>
+            <p>
+              الذكاء الاصطناعي يحلل بيانات مشروعك
+              ويرشح لك المختص الأنسب تلقائيًا.
+            </p>
+          </div>
+
+          <div class="card feature-card">
+            <div class="ic">↝</div>
+            <strong>لوحة تحكم موحدة</strong>
+            <p>
+              تتابع كل مرحلة لحظة بلحظة،
+              وتنبهك عند أي قرار أو تأخير.
+            </p>
+          </div>
+
+          <div class="card feature-card">
+            <div class="ic">◈</div>
+            <strong>دفع مرتبط بالإنجاز</strong>
+            <p>
+              الدفعة ما تنزل للمختص إلا بعد اعتمادك،
+              فتحمي مشروعك من التأخير.
+            </p>
+          </div>
+
+          <div class="card feature-card">
+            <div class="ic">◎</div>
+            <strong>إدارة عن بعد بالكامل</strong>
+            <p>
+              تتابع مشروعك من أي مكان،
+              بدون ما تحتاج تحضر أي اجتماع ميداني.
+            </p>
+          </div>
+
+          <div class="card feature-card">
+            <div class="ic">▣</div>
+            <strong>شبكة مختصين موثوقة</strong>
+            <p>
+              كل مختص يمر بتقييم بعد كل مشروع،
+              فالشبكة تتحسن تلقائيًا.
+            </p>
+          </div>
+
+          <div class="card feature-card">
+            <div class="ic">?</div>
+            <strong>دعم متواصل</strong>
+            <p>
+              فريق دعم فني يرافقك من أول تسجيل
+              لين ما تفتتح مشروعك.
+            </p>
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- NEW PROJECT -->
+
+      <section class="screen" id="screen-newproject">
+
+        <div class="eyebrow">
+          <span class="dash"></span>
+          ابدأ رحلتك
+        </div>
+
+        <h1>
+          مشروع جديد
+        </h1>
+
+        <p class="lead">
+          عبّي بيانات مشروعك، ونظام المطابقة
+          يرشح لك المختص الأنسب فورًا.
+        </p>
+
+        <div class="card">
+
+          <div class="grid-2">
+
+            <div class="field">
+              <label>اسم المشروع</label>
+              <input type="text" placeholder="مثال: مقهى نوفا">
+            </div>
+
+            <div class="field">
+
+              <label>نوع النشاط</label>
+
+              <select>
+                <option>مقهى</option>
+                <option>مطعم</option>
+                <option>صالون تجميل</option>
+                <option>متجر أزياء</option>
+                <option>عيادة</option>
+                <option>أخرى</option>
+              </select>
+
+            </div>
+
+          </div>
+
+
+          <div class="grid-2">
+
+            <div class="field">
+
+              <label>الميزانية التقريبية</label>
+
+              <select>
+                <option>أقل من ٥٠ ألف ريال</option>
+                <option>٥٠–١٥٠ ألف ريال</option>
+                <option>أكثر من ١٥٠ ألف ريال</option>
+              </select>
+
+            </div>
+
+            <div class="field">
+
+              <label>الموقع (المدينة)</label>
+
+              <select>
+                <option>الرياض</option>
+                <option>جدة</option>
+                <option>الدمام</option>
+                <option>بريدة</option>
+                <option>أخرى</option>
+              </select>
+
+            </div>
+
+          </div>
+
+
+          <div class="field">
+
+            <label>وصف مختصر لاحتياجك</label>
+
+            <textarea
+              placeholder="مثال: أبي هوية بصرية وديكور داخلي يناسب فكرة مقهى مختص بالقهوة المختصة">
+            </textarea>
+
+          </div>
+
+
+          <button
+            class="btn btn-gold"
+            onclick="go('journey')">
+            ابدأ المطابقة الذكية
+          </button>
+
+        </div>
+
+      </section>
+
+
+      <!-- NOTIFICATIONS -->
+
+      <section class="screen" id="screen-notifications">
+
+        <div class="eyebrow">
+          <span class="dash"></span>
+          آخر التحديثات
+        </div>
+
+        <h1>التنبيهات</h1>
+
+        <p class="lead">
+          كل تحديث بمشروعك يوصلك هنا لحظة صيره.
+        </p>
+
+        <div class="card">
+
+          <div class="notif-item">
+
+            <div style="display:flex;gap:14px">
+
+              <div class="notif-dot"></div>
+
+              <div>
+                <strong>
+                  مرحلة الديكور بانتظار اعتمادك
+                </strong>
+
+                <p>
+                  المصممة رفعت 3 لوحات تصميم لمساحة الجلوس.
+                </p>
+              </div>
+
+            </div>
+
+            <time>قبل ساعتين</time>
+
+          </div>
+
+
+          <div class="notif-item">
+
+            <div style="display:flex;gap:14px">
+
+              <div class="notif-dot"></div>
+
+              <div>
+                <strong>
+                  مختص جديد رشّحه النظام
+                </strong>
+
+                <p>
+                  الذكاء الاصطناعي وجد مطور موقع يناسب ميزانيتك.
+                </p>
+              </div>
+
+            </div>
+
+            <time>أمس</time>
+
+          </div>
+
+
+          <div class="notif-item">
+
+            <div style="display:flex;gap:14px">
+
+              <div class="notif-dot read"></div>
+
+              <div>
+                <strong>
+                  تم اعتماد مرحلة الهوية البصرية
+                </strong>
+
+                <p>
+                  الدفعة الأولى نزلت للمصممة تلقائيًا.
+                </p>
+              </div>
+
+            </div>
+
+            <time>قبل ٣ أيام</time>
+
+          </div>
+
+
+          <div class="notif-item">
+
+            <div style="display:flex;gap:14px">
+
+              <div class="notif-dot read"></div>
+
+              <div>
+                <strong>
+                  مرحبًا بك في شَيَّاد
+                </strong>
+
+                <p>
+                  تم تسجيل مشروعك بنجاح، ابدأ رحلتك الآن.
+                </p>
+              </div>
+
+            </div>
+
+            <time>قبل أسبوع</time>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- JOURNEY -->
+
+      <section class="screen" id="screen-journey">
+
+        <div class="eyebrow">
+          <span class="dash"></span>
+          مقهى نوفا
+        </div>
+
+        <h1>رحلة المشروع</h1>
+
+        <p class="lead">
+          كل مرحلة من رحلة تأسيسك، بمكان واحد.
+        </p>
+
+        <div class="card">
+
+          <div class="progress-row">
+
+            <span>مؤشر الجاهزية</span>
+
+            <span>62%</span>
+
+          </div>
+
+          <div class="progress-bar">
+
+            <div class="progress-fill"></div>
+
+          </div>
+
+
+          <div class="stage">
+            <div class="dot done"></div>
+            <span>الهوية البصرية</span>
+            <small>مكتمل — معتمد</small>
+          </div>
+
+          <div class="stage">
+            <div class="dot pending"></div>
+            <span>تصميم الديكور الداخلي</span>
+            <small>بانتظار اعتمادك</small>
+          </div>
+
+          <div class="stage">
+            <div class="dot locked"></div>
+            <span>تطوير الموقع الإلكتروني</span>
+            <small>لم يبدأ بعد</small>
+          </div>
+
+          <div class="stage">
+            <div class="dot locked"></div>
+            <span>التصوير والمحتوى</span>
+            <small>لم يبدأ بعد</small>
+          </div>
+
+          <div class="stage">
+            <div class="dot locked"></div>
+            <span>الافتتاح</span>
+            <small>لم يبدأ بعد</small>
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- IDENTITY -->
+
+      <section class="screen" id="screen-identity">
+
+        <div class="eyebrow">
+          <span class="dash"></span>
+          مطابقة بصرية
+        </div>
+
+        <h1>
+          تصاميم الهوية المتاحة
+        </h1>
+
+        <p class="lead">
+          اتجاهات مقترحة من مختصي شَيَّاد
+          بناءً على وصف مشروعك.
+        </p>
+
+
+        <div class="grid-3">
+
+          <div class="design-card">
+
+            <div
+              class="design-swatch"
+              style="background:#20180F;color:#B9925A">
+              Aa
+            </div>
+
+            <div class="design-meta">
+              <strong>اتجاه دافئ كلاسيكي</strong>
+              <span>ذهبي × كحلي غامق</span>
+            </div>
+
+          </div>
+
+
+          <div class="design-card">
+
+            <div
+              class="design-swatch"
+              style="background:#F4EFE4;color:#15120E">
+              Aa
+            </div>
+
+            <div class="design-meta">
+              <strong>اتجاه بسيط نظيف</strong>
+              <span>كريمي × أسود</span>
+            </div>
+
+          </div>
+
+
+          <div class="design-card">
+
+            <div
+              class="design-swatch"
+              style="background:#2E3A33;color:#DCE8DE">
+              Aa
+            </div>
+
+            <div class="design-meta">
+              <strong>اتجاه طبيعي هادئ</strong>
+              <span>أخضر زيتي × كريمي</span>
+            </div>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- SUPPORT -->
+
+      <section class="screen" id="screen-support">
+
+        <div class="eyebrow">
+          <span class="dash"></span>
+          نساعدك أول بأول
+        </div>
+
+        <h1>الدعم الفني</h1>
+
+        <p class="lead">
+          عندك استفسار عن مشروعك أو المنصة؟
+          تواصل معنا بأي وقت.
+        </p>
+
+
+        <div class="support-option">
+          <div class="ic">💬</div>
+          <div>
+            <strong>محادثة مباشرة</strong>
+            <span>ردنا خلال دقائق بأوقات الدوام</span>
+          </div>
+        </div>
+
+
+        <div class="support-option">
+          <div class="ic">✉</div>
+          <div>
+            <strong>البريد الإلكتروني</strong>
+            <span>support@shayyad.com</span>
+          </div>
+        </div>
+
+
+        <div class="support-option">
+          <div class="ic">☎</div>
+          <div>
+            <strong>الجوال</strong>
+            <span>خط دعم مباشر لأصحاب المشاريع النشطة</span>
+          </div>
+        </div>
+
+
+        <div class="card" style="margin-top:24px">
+
+          <h2 style="font-size:15px;margin-bottom:14px">
+            أسئلة شائعة
+          </h2>
+
+          <div class="faq-item">
+            <strong>متى تنزل الدفعة للمختص؟</strong>
+            <p>
+              فقط بعد ما تعتمد المرحلة من لوحة رحلة المشروع.
+            </p>
+          </div>
+
+          <div class="faq-item">
+            <strong>كم مدة المطابقة؟</strong>
+            <p>
+              النظام يرشح لك مختص خلال دقائق من تسجيل بيانات مشروعك.
+            </p>
+          </div>
+
+          <div class="faq-item" style="border-bottom:none">
+            <strong>أقدر أغيّر المختص؟</strong>
+            <p>
+              إيه، تقدر تطلب مختص بديل قبل اعتماد أي مرحلة.
+            </p>
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- SETTINGS -->
+
+      <section class="screen" id="screen-settings">
+
+        <div class="eyebrow">
+          <span class="dash"></span>
+          حسابك
+        </div>
+
+        <h1>الإعدادات</h1>
+
+        <p class="lead">
+          تحكم ببياناتك وتفضيلات إشعاراتك.
+        </p>
+
+
+        <section class="block">
+
+          <h2>
+            البيانات الشخصية
+          </h2>
+
+          <div class="card">
+
+            <div class="grid-2">
+
+              <div class="field">
+                <label>الاسم</label>
+                <input type="text" value="محمد العتيبي">
+              </div>
+
+              <div class="field">
+                <label>الجوال</label>
+                <input type="text" value="05xxxxxxxx">
+              </div>
+
+            </div>
+
+            <div class="field" style="margin-bottom:0">
+
+              <label>البريد الإلكتروني</label>
+
+              <input
+                type="text"
+                value="mohammed@email.com">
+
+            </div>
+
+          </div>
+
+        </section>
+
+
+        <section class="block">
+
+          <h2>
+            الإشعارات
+          </h2>
+
+          <div class="card">
+
+            <div class="settings-row">
+
+              <div>
+                <strong>تنبيهات المراحل</strong>
+                <span>
+                  إشعار عند اكتمال أو تأخر أي مرحلة
+                </span>
+              </div>
+
+              <div
+                class="toggle on"
+                onclick="this.classList.toggle('on')">
+
+                <div class="knob"></div>
+
+              </div>
+
+            </div>
+
+
+            <div class="settings-row">
+
+              <div>
+                <strong>عروض ومختصين جدد</strong>
+                <span>
+                  تنبيه عند انضمام مختصين جدد لشبكتنا
+                </span>
+              </div>
+
+              <div
+                class="toggle"
+                onclick="this.classList.toggle('on')">
+
+                <div class="knob"></div>
+
+              </div>
+
+            </div>
+
+
+            <div class="settings-row">
+
+              <div>
+                <strong>رسائل عبر الجوال (SMS)</strong>
+                <span>
+                  نسخة من التنبيهات المهمة عبر رسالة نصية
+                </span>
+              </div>
+
+              <div
+                class="toggle on"
+                onclick="this.classList.toggle('on')">
+
+                <div class="knob"></div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </section>
+
+
+        <button
+          class="btn btn-outline"
+          onclick="demoLogout()">
+          تسجيل الخروج
+        </button>
+
+      </section>
+
+    </main>
+
+  </div>
+
+</div>
+
+
+<!-- =====================================================
+     MODAL
+===================================================== -->
+
+<div
+  class="modal-overlay"
+  id="modalOverlay">
+
+  <div class="modal-box">
+
+    <div id="modalForm">
+
+      <h3>
+        ابدأ مشروعك مع شَيَّاد
+      </h3>
+
+      <p class="modal-sub">
+        أدخل بياناتك وسيتواصل معك الفريق لمتابعة الخطوة التالية.
+      </p>
+
+
+      <div class="form-field">
+
+        <label>الاسم</label>
+
+        <input
+          type="text"
+          id="customerName"
+          placeholder="اسمك الكامل">
+
+      </div>
+
+
+      <div class="form-field">
+
+        <label>الجوال</label>
+
+        <input
+          type="tel"
+          id="customerPhone"
+          placeholder="05xxxxxxxx">
+
+      </div>
+
+
+      <div class="form-field">
+
+        <label>المدينة</label>
+
+        <select id="customerCity">
+
+          <option>الرياض</option>
+          <option>جدة</option>
+          <option>الدمام</option>
+          <option>بريدة</option>
+          <option>أخرى</option>
+
+        </select>
+
+      </div>
+
+
+      <div class="modal-actions">
+
+        <button
+          class="modal-submit"
+          onclick="submitModal()">
+          إرسال الطلب
+        </button>
+
+        <button
+          class="modal-cancel"
+          onclick="closeModal()">
+          إلغاء
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <div
+      class="modal-success"
+      id="modalSuccess">
+
+      <div class="icon">✓</div>
+
+      <h3>
+        تم استلام طلبك
+      </h3>
+
+      <p>
+        شكرًا لك. هذه نسخة تجريبية من المنصة،
+        وسيظهر طلبك هنا كأنه تم إرساله بنجاح.
+      </p>
+
+      <button
+        class="btn btn-gold"
+        style="margin-top:20px"
+        onclick="closeModal()">
+        إغلاق
+      </button>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+<!-- =====================================================
+     CHATBOT
+===================================================== -->
+
+<button
+  class="chat-bubble"
+  id="chatToggle"
+  aria-label="فتح المساعد">
+  💬
+</button>
+
+
+<div
+  class="chat-panel"
+  id="chatPanel">
+
+  <div class="chat-head">
+
+    <div>
+
+      <strong>
+        مساعد شَيَّاد
+      </strong>
+
+      <span>
+        متواجد لمساعدتك
+      </span>
+
+    </div>
+
+    <button
+      class="chat-close"
+      onclick="toggleChat(false)">
+      ×
+    </button>
+
+  </div>
+
+
+  <div
+    class="chat-body"
+    id="chatBody">
+
+    <div class="msg bot">
+      أهلًا! 👋 كيف أقدر أساعدك عن شَيَّاد؟
+    </div>
+
+  </div>
+
+
+  <div class="chat-quick">
+
+    <button
+      class="quick-btn"
+      onclick="askBot('وش شيّاد؟')">
+      وش شيّاد؟
+    </button>
+
+    <button
+      class="quick-btn"
+      onclick="askBot('كيف الدفع؟')">
+      كيف الدفع؟
+    </button>
+
+    <button
+      class="quick-btn"
+      onclick="askBot('كيف أبدأ؟')">
+      كيف أبدأ؟
+    </button>
+
+  </div>
+
+</div>
+
+
+<script>
+/* =========================================================
+   GLOBAL VIEW SWITCHING
+========================================================= */
+
+function switchView(viewId,button){
+
+  document.querySelectorAll('.view')
+    .forEach(view => view.classList.remove('active'));
+
+  document.getElementById(viewId)
+    .classList.add('active');
+
+  document.querySelectorAll('.tab')
+    .forEach(tab => tab.classList.remove('active'));
+
+  button.classList.add('active');
+
+  window.scrollTo({
+    top:0,
+    behavior:'smooth'
+  });
+
+}
+
+
+/* =========================================================
+   APP NAVIGATION
+========================================================= */
+
+const navItems =
+  document.querySelectorAll('.nav-item');
+
+const screens =
+  document.querySelectorAll('.screen');
+
+
+function go(name){
+
+  navItems.forEach(item => {
+
+    item.classList.toggle(
+      'active',
+      item.dataset.screen === name
+    );
+
+  });
+
+
+  screens.forEach(screen => {
+
+    screen.classList.toggle(
+      'active',
+      screen.id === 'screen-' + name
+    );
+
+  });
+
+  const appView =
+    document.getElementById('appView');
+
+  if(appView.classList.contains('active')){
+
+    window.scrollTo({
+      top:0,
+      behavior:'smooth'
+    });
+
+  }
+
+}
+
+
+navItems.forEach(item => {
+
+  item.addEventListener('click', () => {
+
+    go(item.dataset.screen);
+
+  });
+
+});
+
+
+go('login');
+
+
+/* =========================================================
+   DEMO LOGIN
+========================================================= */
+
+function demoLogin(){
+
+  alert(
+    'تم تسجيل الدخول بنجاح — هذه نسخة تجريبية من المنصة.'
+  );
+
+  go('journey');
+
+}
+
+
+/* =========================================================
+   DEMO LOGOUT
+========================================================= */
+
+function demoLogout(){
+
+  go('login');
+
+  alert(
+    'تم تسجيل الخروج من النسخة التجريبية.'
+  );
+
+}
+
+
+/* =========================================================
+   SMART MATCHING
+========================================================= */
+
+let selectedType = '';
+
+let selectedBudget = '';
+
+const matchBtn =
+  document.getElementById('matchBtn');
+
+
+function wireChips(groupId,onSelect){
+
+  document
+    .querySelectorAll('#' + groupId + ' .chip')
+    .forEach(chip => {
+
+      chip.addEventListener('click',() => {
+
+        document
+          .querySelectorAll(
+            '#' + groupId + ' .chip'
+          )
+          .forEach(c =>
+            c.classList.remove('active')
+          );
+
+        chip.classList.add('active');
+
+        onSelect(chip.dataset.value);
+
+      });
+
+    });
+
+}
+
+
+wireChips(
+  'chip-type',
+  value => {
+    selectedType = value;
+    checkReady();
+  }
+);
+
+
+wireChips(
+  'chip-budget',
+  value => {
+    selectedBudget = value;
+    checkReady();
+  }
+);
+
+
+function checkReady(){
+
+  matchBtn.disabled =
+    !(selectedType && selectedBudget);
+
+}
+
+
+const specialists = {
+
+  'مقهى':{
+    name:'المصممة المعتمدة',
+    role:'مصممة هوية بصرية ومقاهي',
+    avatar:'م.ه'
+  },
+
+  'مطعم':{
+    name:'المهندس المعتمد',
+    role:'مصمم ديكور مطاعم',
+    avatar:'م.د'
+  },
+
+  'صالون تجميل':{
+    name:'المصممة المعتمدة',
+    role:'مصممة ديكور صالونات',
+    avatar:'م.ص'
+  },
+
+  'متجر أزياء':{
+    name:'المصمم المعتمد',
+    role:'مصمم هوية ومساحات تجزئة',
+    avatar:'م.أ'
+  },
+
+  'عيادة':{
+    name:'المهندسة المعتمدة',
+    role:'مصممة مساحات طبية',
+    avatar:'م.ط'
+  }
+
+};
+
+
+matchBtn.addEventListener('click',() => {
+
+  const specialist =
+    specialists[selectedType];
+
+  if(!specialist) return;
+
+
+  document.getElementById(
+    'matchAvatar'
+  ).textContent =
+    specialist.avatar;
+
+
+  document.getElementById(
+    'matchName'
+  ).textContent =
+    specialist.name;
+
+
+  document.getElementById(
+    'matchRole'
+  ).textContent =
+    specialist.role +
+    ' — تقييم ٤.٩';
+
+
+  const score =
+    88 + Math.floor(Math.random() * 10);
+
+
+  document.getElementById(
+    'matchScore'
+  ).textContent =
+    'مطابقة ' +
+    score.toLocaleString('ar-EG') +
+    '٪';
+
+
+  document
+    .getElementById('demoResult')
+    .classList.add('show');
+
+
+  document
+    .getElementById('demoResult')
+    .scrollIntoView({
+      behavior:'smooth',
+      block:'nearest'
+    });
+
+});
+
+
+/* =========================================================
+   MODAL
+========================================================= */
+
+function openModal(){
+
+  document
+    .getElementById('modalOverlay')
+    .classList.add('show');
+
+  document
+    .getElementById('modalForm')
+    .style.display='block';
+
+  document
+    .getElementById('modalSuccess')
+    .classList.remove('show');
+
+}
+
+
+function closeModal(){
+
+  document
+    .getElementById('modalOverlay')
+    .classList.remove('show');
+
+}
+
+
+function submitModal(){
+
+  const name =
+    document.getElementById(
+      'customerName'
+    ).value.trim();
+
+  const phone =
+    document.getElementById(
+      'customerPhone'
+    ).value.trim();
+
+
+  if(!name || !phone){
+
+    alert(
+      'فضلاً أدخل الاسم ورقم الجوال.'
+    );
+
+    return;
+
+  }
+
+
+  document
+    .getElementById('modalForm')
+    .style.display='none';
+
+  document
+    .getElementById('modalSuccess')
+    .classList.add('show');
+
+}
+
+
+document
+  .getElementById('modalOverlay')
+  .addEventListener('click',event => {
+
+    if(
+      event.target.id ===
+      'modalOverlay'
+    ){
+
+      closeModal();
+
+    }
+
+  });
+
+
+/* =========================================================
+   CHATBOT
+========================================================= */
+
+const chatPanel =
+  document.getElementById('chatPanel');
+
+
+function toggleChat(force){
+
+  const show =
+    force !== undefined
+      ? force
+      : !chatPanel.classList.contains('show');
+
+  chatPanel.classList.toggle(
+    'show',
+    show
+  );
+
+}
+
+
+document
+  .getElementById('chatToggle')
+  .addEventListener(
+    'click',
+    () => toggleChat()
+  );
+
+
+const botReplies = {
+
+  'وش شيّاد؟':
+    'شَيَّاد منصة تقنية سعودية تربط أصحاب المشاريع بمختصي التصميم والتنفيذ، وتدير رحلة التأسيس كاملة بلوحة تحكم ذكية.',
+
+  'كيف الدفع؟':
+    'في النسخة التجريبية يظهر الدفع مرتبطًا باعتماد كل مرحلة من مراحل المشروع.',
+
+  'كيف أبدأ؟':
+    'تقدر تضغط "ابدأ مشروعك" أو تجرب المطابقة الذكية، وبعدها تدخل بيانات مشروعك.'
+};
+
+
+function askBot(question){
+
+  addMsg(
+    question,
+    'user'
+  );
+
+
+  setTimeout(() => {
+
+    const reply =
+      botReplies[question] ||
+      'سؤال حلو! فريقنا بيقدر يجاوبك عليه بالتفصيل.';
+
+
+    addMsg(
+      reply,
+      'bot'
+    );
+
+  },500);
+
+}
+
+
+function addMsg(text,who){
+
+  const body =
+    document.getElementById(
+      'chatBody'
+    );
+
+
+  const div =
+    document.createElement('div');
+
+
+  div.className =
+    'msg ' + who;
+
+
+  div.textContent =
+    text;
+
+
+  body.appendChild(div);
+
+
+  body.scrollTop =
+    body.scrollHeight;
+
+}
+</script>
+
+</body>
+</html>
